@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheBandit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="750">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Add Money" HorizontalAlignment="Center" Margin="20,20,20,20" VerticalAlignment="Top" Width="100" Height="20"/>
+        <Button Content="Quit" Grid.Row="2" Width="100" Height="20" Margin="20,20,20,20"/>
+        <TextBlock Text="Balance:" Grid.Column="2" Margin="20,20,20,20"/>
+        <TextBlock Text="666" Grid.Column="2" Margin="80,20,20,20"/>
+        <Grid Grid.Column="2" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Bet"/>
+            <ListBox Grid.Row="1" Margin="0,0,20,20">
+                <ListBoxItem>1</ListBoxItem>
+                <ListBoxItem>2</ListBoxItem>
+                <ListBoxItem>3</ListBoxItem>
+                <ListBoxItem>4</ListBoxItem>
+                <ListBoxItem>5</ListBoxItem>                
+            </ListBox>
+            <Button Content="Spin" Grid.Row="2" Height="20" Width="100" VerticalAlignment="Bottom" Margin="0,0,20,20"/>
+        </Grid>
+        <Grid  Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Payout x bet" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <TextBlock Text="9 = 2x" Grid.Row="1" HorizontalAlignment="Center"/>
+            <TextBlock Text="10 = 3x" Grid.Row="2" HorizontalAlignment="Center"/>
+            <TextBlock Text="Kn = 5x" Grid.Row="3" HorizontalAlignment="Center"/>
+            <TextBlock Text="Q = 10x" Grid.Row="4" HorizontalAlignment="Center"/>
+            <TextBlock Text="K = 20x" Grid.Row="5" HorizontalAlignment="Center"/>
+            <TextBlock Text="A = 50x" Grid.Row="6" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
     </Grid>
 </Window>
