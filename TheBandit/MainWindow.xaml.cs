@@ -20,9 +20,26 @@ namespace TheBandit
     /// </summary>
     public partial class MainWindow : Window
     {
+        int[,] cards = new int[,] { { 6, 6, 6 }, { 6, 6, 6 }, { 6, 6, 6 } };
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Spin_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
