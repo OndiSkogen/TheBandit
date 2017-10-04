@@ -20,7 +20,7 @@ namespace TheBandit
     /// </summary>
     public partial class MainWindow : Window
     {
-        int[,] cards = new int[,] { { 1, 6, 3 }, { 4, 6, 4 }, { 3, 6, 5 } };
+        string[,] cards = new string[,] { { "/Images/Nio.png", "/Images/Ess.png", "/Images/Knekt.png" }, { "/Images/Dam.png", "/Images/Ess.png", "/Images/Dam.png" }, { "/Images/Knekt.png", "/Images/Ess.png", "/Images/Kung.png" } };
         GameBoard gameBoard = new GameBoard();
         Wallet wallet = new Wallet();
         
@@ -66,33 +66,12 @@ namespace TheBandit
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Image tile = new Image { Source = new BitmapImage(new Uri(GetUri(cards[i, j]), UriKind.Relative)) };
+                    Image tile = new Image { Source = new BitmapImage(new Uri(cards[i, j], UriKind.Relative)) };
                     Grid.SetColumn(tile, i);
                     Grid.SetRow(tile, j);
                     SlotGrid.Children.Add(tile);
                 }
             }
-        }
-
-        private string GetUri(int i)
-        {
-            switch (i)
-            {
-                case 1:
-                    return "/Images/Nio.png";
-                case 2:
-                    return "/Images/Tio.png";
-                case 3:
-                    return "/Images/Knekt.png";
-                case 4:
-                    return "/Images/Dam.png";
-                case 5:
-                    return "/Images/Kung.png";
-                case 6:
-                    return "/Images/Ess.png";
-                default:
-                    return "";
-            }
-        }
+        }        
     }
 }

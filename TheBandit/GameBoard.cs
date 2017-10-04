@@ -8,13 +8,13 @@ namespace TheBandit
 {
     class GameBoard
     {
-        private int[,] cards = new int[3, 3];
+        private string[,] cards = new string[3, 3];        
         Random rnd = new Random();
         private int winningLines;
         private int sum;
 
         //Metod som randomiserar ett gameboard och skickar tillbaka det.
-        public int[,] Spin()
+        public string[,] Spin()
         {
             for (int i = 0; i < 3; i++)
             {
@@ -26,28 +26,28 @@ namespace TheBandit
             return cards;
         }
 
-        private int GetMultiplier(int i)
+        private int GetMultiplier(string str)
         {
-            switch (i)
+            switch (str)
             {
-                case 1:
+                case "/Images/Nio.png":
                     return 2;
-                case 2:
+                case "/Images/Tio.png":
                     return 3;
-                case 3:
+                case "/Images/Knekt.png":
                     return 5;
-                case 4:
+                case "/Images/Dam.png":
                     return 10;
-                case 5:
+                case "/Images/Kung.png":
                     return 20;
-                case 6:
+                case "/Images/Ess.png":
                     return 50;
                 default:
                     return 0;
             }
         }
 
-        public int CheckWinnings(int[,] temp, int bet)
+        public int CheckWinnings(string[,] temp, int bet)
         {
             sum = 0;
             winningLines = 0;
@@ -58,15 +58,15 @@ namespace TheBandit
                 winningLines++;
             }
 
-            if (temp[0, 1] == temp[1, 1] && temp[1, 0] == temp[2, 1])
+            if (temp[0, 1] == temp[1, 1] && temp[0, 1] == temp[2, 1])
             {
-                sum += bet * GetMultiplier(temp[1, 0]);
+                sum += bet * GetMultiplier(temp[0, 1]);
                 winningLines++;
             }
 
             if (temp[0, 2] == temp[1, 2] && temp[0, 2] == temp[2, 2])
             {
-                sum += bet * GetMultiplier(temp[2, 0]);
+                sum += bet * GetMultiplier(temp[0, 2]);
                 winningLines++;
             }
 
@@ -96,21 +96,21 @@ namespace TheBandit
         }
 
         //Returnerar ett randomiserat kort enligt angivna %
-        private int GenerateCard()
+        private string GenerateCard()
         {
             int i = rnd.Next(101);
 
-            if (i < 31) return 1;
+            if (i < 31) return "/Images/Nio.png";
 
-            if (i > 30 && i < 56) return 2;
+            if (i > 30 && i < 56) return "/Images/Tio.png";
 
-            if (i > 55 && i < 76) return 3;
+            if (i > 55 && i < 76) return "/Images/Knekt.png";
 
-            if (i > 75 && i < 91) return 4;
+            if (i > 75 && i < 91) return "/Images/Dam.png";
 
-            if (i > 90 && i < 99) return 5;
+            if (i > 90 && i < 99) return "/Images/Kung.png";
 
-            else return 6;
+            else return "/Images/Ess.png";
         }
     }
 }
