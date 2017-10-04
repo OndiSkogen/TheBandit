@@ -8,8 +8,10 @@ namespace TheBandit
 {
     class GameBoard
     {
-        int[,] cards = new int[3, 3];
+        private int[,] cards = new int[3, 3];
         Random rnd = new Random();
+        private int winningLines;
+        private int sum;
 
         //Metod som randomiserar ett gameboard och skickar tillbaka det.
         public int[,] Spin()
@@ -24,20 +26,20 @@ namespace TheBandit
             return cards;
         }
 
-        private double GetMultiplier(int i)
+        private int GetMultiplier(int i)
         {
             switch (i)
             {
                 case 1:
-                    return 1.2;
-                case 2:
                     return 2;
+                case 2:
+                    return 3;
                 case 3:
-                    return 2.5;
-                case 4:
                     return 5;
-                case 5:
+                case 4:
                     return 10;
+                case 5:
+                    return 20;
                 case 6:
                     return 50;
                 default:
@@ -45,35 +47,51 @@ namespace TheBandit
             }
         }
 
-        public double CheckWinnings(int[,] temp, int bet)
+        public int CheckWinnings(int[,] temp, int bet)
         {
-            double sum = 0;
+            sum = 0;
+            winningLines = 0;
 
-            if (temp[0,0] == temp[0,1] && temp[0,0] == temp[0, 2])
+            if (temp[0,0] == temp[1,0] && temp[0,0] == temp[2, 0])
             {
                 sum += bet * GetMultiplier(temp[0, 0]);
+                winningLines++;
             }
 
-            if (temp[1, 0] == temp[1, 1] && temp[1, 0] == temp[1, 2])
+            if (temp[0, 1] == temp[1, 1] && temp[1, 0] == temp[2, 1])
             {
                 sum += bet * GetMultiplier(temp[1, 0]);
+                winningLines++;
             }
 
-            if (temp[2, 0] == temp[2, 1] && temp[2, 0] == temp[2, 2])
+            if (temp[0, 2] == temp[1, 2] && temp[0, 2] == temp[2, 2])
             {
                 sum += bet * GetMultiplier(temp[2, 0]);
+                winningLines++;
             }
 
             if (temp[0, 0] == temp[1, 1] && temp[0, 0] == temp[2, 2])
             {
                 sum += bet * GetMultiplier(temp[0, 0]);
+                winningLines++;
             }
 
             if (temp[2, 0] == temp[1, 1] && temp[2, 0] == temp[0, 2])
             {
                 sum += bet * GetMultiplier(temp[2, 0]);
-            }
+                winningLines++;
+            }          
 
+            return sum;
+        }
+
+        public int GetWinningLines()
+        {
+            return winningLines;
+        }
+
+        public int GetSum()
+        {
             return sum;
         }
 
