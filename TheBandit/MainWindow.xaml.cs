@@ -37,7 +37,14 @@ namespace TheBandit
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            wallet.AddMoney(Int32.Parse(Amount.Text));
+            try
+            {
+                wallet.AddMoney(Int32.Parse(Amount.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please use a numerical value. \n" + ex);
+            }
             DisplayMoney.Text = wallet.Money().ToString();
             Amount.Text = "";
         }
