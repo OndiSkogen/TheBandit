@@ -5,68 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheBandit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="750">
+        Title="The Bandit" Height="150" Width="320">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Button Name="Add" Content="Add Money" HorizontalAlignment="Center" Margin="20,20,20,20" VerticalAlignment="Top" Width="100" Height="20" Click="Add_Click"/>
-        <TextBox InputScope="Number" Name="Amount" Height="20" Width="100" VerticalAlignment="Bottom" Margin="0,50,0,0"/>
-        <Button Name="Quit" Content="Quit" Grid.Row="2" Width="100" Height="20" Margin="20,20,20,20" Click="Quit_Click"/>
-        <TextBlock Text="Balance:" Grid.Column="2" Margin="20,20,20,20"/>
-        <TextBlock Name="DisplayMoney" Text="0" Grid.Column="2" Margin="80,20,20,20"/>
-        <Grid Grid.Column="2" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Bet" Margin="20,0,0,0"/>
-            <Button Name="Spin" Content="Spin" Grid.Row="2" Height="20" Width="100" VerticalAlignment="Bottom" Margin="20,0,20,20" Click="Spin_Click"/>
-            <ComboBox Name="Bet" Grid.Row="1" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="100">
-                <ComboBoxItem IsSelected="True">1</ComboBoxItem>
-                <ComboBoxItem>2</ComboBoxItem>
-                <ComboBoxItem>3</ComboBoxItem>
-                <ComboBoxItem>4</ComboBoxItem>
-                <ComboBoxItem>5</ComboBoxItem>
-            </ComboBox>
-        </Grid>
-        <Grid  Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Payout" HorizontalAlignment="Center" Margin="0,20,0,0"/>
-            <TextBlock Text="9 = 2x" Grid.Row="1" HorizontalAlignment="Center"/>
-            <TextBlock Text="10 = 3x" Grid.Row="2" HorizontalAlignment="Center"/>
-            <TextBlock Text="Kn = 5x" Grid.Row="3" HorizontalAlignment="Center"/>
-            <TextBlock Text="Q = 10x" Grid.Row="4" HorizontalAlignment="Center"/>
-            <TextBlock Text="K = 20x" Grid.Row="5" HorizontalAlignment="Center"/>
-            <TextBlock Text="A = 50x" Grid.Row="6" HorizontalAlignment="Center"/>
-        </Grid>
-        <Grid Name="SlotGrid" Grid.Column="1" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>           
-        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="Enter name:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="170,20,0,0" TextWrapping="Wrap" Text="Enter age:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="20,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="NameBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="170,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="AgeBox"/>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" Width="80" Margin="0,0,25,20" Content="Register" Name="Register" Click="Register_Click"/>
     </Grid>
 </Window>
