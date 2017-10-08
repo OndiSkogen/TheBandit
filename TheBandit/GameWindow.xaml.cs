@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
+//Andreas Norberg, 2017
 namespace TheBandit
-{
-    /// <summary>
-    /// Interaction logic for GameWindow.xaml
-    /// </summary>
+{    
     public partial class GameWindow : Window
     {
         string[,] cards = new string[,] { { "/Images/Nio.png", "/Images/Ess.png", "/Images/Knekt.png" }, { "/Images/Dam.png", "/Images/Ess.png", "/Images/Dam.png" }, { "/Images/Knekt.png", "/Images/Ess.png", "/Images/Kung.png" } };
@@ -63,7 +52,7 @@ namespace TheBandit
 
                 if (gameBoard.GetSum() > 0)
                 {
-                    MessageBox.Show("You won " + gameBoard.GetSum() + " Bandit dollars!");
+                    MessageBox.Show("You won " + gameBoard.GetSum() + " Bandit dollars from " + gameBoard.GetWinningLines() + " winning lines!");
                 }
                 
                 DisplayMoney.Text = wallet.Money().ToString();
@@ -89,7 +78,7 @@ namespace TheBandit
             }
         }
 
-        public void SetPerson(string name, int age)
+        private void SetPerson(string name, int age)
         {
             person = new Person(name, age);
         }

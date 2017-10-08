@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+//Andreas Norberg, 2017
 namespace TheBandit
 {
     class GameBoard
     {
-        private string[,] cards = new string[3, 3];        
+        private string[,] cards = new string[3, 3];
         Random rnd = new Random();
         private int winningLines;
         private int sum;
 
-        //Metod som randomiserar ett gameboard och skickar tillbaka det.
         public string[,] Spin()
         {
             for (int i = 0; i < 3; i++)
@@ -52,7 +48,7 @@ namespace TheBandit
             sum = 0;
             winningLines = 0;
 
-            if (temp[0,0] == temp[1,0] && temp[0,0] == temp[2, 0])
+            if (temp[0, 0] == temp[1, 0] && temp[0, 0] == temp[2, 0])
             {
                 sum += bet * GetMultiplier(temp[0, 0]);
                 winningLines++;
@@ -80,7 +76,7 @@ namespace TheBandit
             {
                 sum += bet * GetMultiplier(temp[2, 0]);
                 winningLines++;
-            }          
+            }
 
             return sum;
         }
@@ -94,8 +90,7 @@ namespace TheBandit
         {
             return sum;
         }
-
-        //Returnerar ett randomiserat kort enligt angivna %
+        
         private string GenerateCard()
         {
             int i = rnd.Next(101);
